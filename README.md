@@ -1,2 +1,92 @@
-# aaa
-aaa
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Você quer ficar comigo?</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    h1 {
+      color: #d63384;
+      text-align: center;
+    }
+
+    #botoes {
+      margin-top: 30px;
+      position: relative;
+    }
+
+    button {
+      padding: 12px 24px;
+      font-size: 18px;
+      margin: 10px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    #sim {
+      background-color: #28a745;
+      color: white;
+    }
+
+    #nao {
+      background-color: #dc3545;
+      color: white;
+      position: absolute;
+    }
+
+    #mensagem {
+      margin-top: 40px;
+      font-size: 24px;
+      color: #333;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Você quer me dar um beijo? 💋</h1>
+
+  <div id="botoes">
+    <button id="sim">SIM</button>
+    <button id="nao">NÃO</button>
+  </div>
+
+  <div id="mensagem"></div>
+
+  <script>
+    const nao = document.getElementById('nao');
+    const sim = document.getElementById('sim');
+    const mensagem = document.getElementById('mensagem');
+
+    function moverBotao() {
+      const maxX = window.innerWidth - 150;
+      const maxY = window.innerHeight - 200;
+      const x = Math.floor(Math.random() * maxX);
+      const y = Math.floor(Math.random() * maxY);
+      nao.style.left = `${x}px`;
+      nao.style.top = `${y}px`;
+    }
+
+    nao.addEventListener('mouseover', moverBotao); // para PC
+    nao.addEventListener('touchstart', moverBotao); // para celular
+
+    sim.addEventListener('click', () => {
+      mensagem.textContent = 'Eu sabia que você ia dizer sim! 😍';
+    });
+  </script>
+
+</body>
+</html>
+
